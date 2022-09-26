@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="800.0" prefWidth="1280.0" stylesheets="@bootstrap3.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kursrab.controllers.MainController">
+  <children>
+      <HBox prefHeight="28.0" prefWidth="1280.0">
+         <children>
+          <MenuBar prefHeight="30.0" prefWidth="1249.0">
+            <menus>
+              <Menu mnemonicParsing="false" text="Файл">
+                <items>
+                  <MenuItem mnemonicParsing="false" onAction="#connectionToDb" text="Подключиться к БД" />
+                  <MenuItem mnemonicParsing="false" onAction="#onAppExit" text="Выход" />
+                </items>
+              </Menu>
+                  <Menu mnemonicParsing="false" text="Успеваемость">
+                    <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onLoadJournal" text="Журнал успеваемости" />
+                  <MenuItem mnemonicParsing="false" onAction="#onLoadEvents" text="Мероприятия" />
+                    </items>
+                  </Menu>
+              <Menu mnemonicParsing="false" text="Данные">
+                <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onLoadStudents" text="Ученики" />
+                  <MenuItem mnemonicParsing="false" onAction="#onLoadTeachers" text="Учителя" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#onLoadSubject" text="Предметы" />
+                  <MenuItem mnemonicParsing="false" onAction="#onLoadPrize" text="Призы" />
+                        <MenuItem mnemonicParsing="false" onAction="#onLoadTeachDiscip" text="Учитель-предмет" />
+                </items>
+              </Menu>
+            </menus>
+          </MenuBar>
+            <Circle fx:id="circle" fill="#e81920" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </HBox>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TableView fx:id="tableMain" prefHeight="770.0" prefWidth="1280.0" stylesheets="@bootstrap3.css" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                <TableColumn fx:id="ratingColumn" prefWidth="75.0" text="Общий &#10;рейтинг" />
+                <TableColumn fx:id="scorEventColumn" prefWidth="90.0" text="Количество&#10;очков за&#10;мероприятия" />
+                  <TableColumn fx:id="scorLearnColumn" prefWidth="75.0" text="Количество&#10;оценок" />
+                  <TableColumn fx:id="surnameColumn" prefWidth="75.0" text="Фамилия" />
+                  <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Имя" />
+                  <TableColumn fx:id="midnameColumn" prefWidth="295.0" text="Отчество" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children></AnchorPane>
+  </children>
+</VBox>
