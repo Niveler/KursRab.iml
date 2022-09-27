@@ -92,6 +92,7 @@ public class TeacherController {
             surname = teacher.getSurname();
             name = teacher.getName();
             midname = teacher.getMidname();
+            linkImage = teacher.getPhoto();
             education = teacher.getEducation();
             teachers.add(teacher);
             try {
@@ -113,26 +114,27 @@ public class TeacherController {
 
     public void onEdit(ActionEvent actionEvent) throws IOException {
         Teacher teacher = TeachersTable.getSelectionModel().getSelectedItem();
-        if(teacher!=null)
+        if(teacher!=null) {
             showDialog(teacher);
+        }
+        id = teacher.getId();
         surname = teacher.getSurname();
         name = teacher.getName();
         midname = teacher.getMidname();
         linkImage = teacher.getPhoto();
         education = teacher.getEducation();
         try {
-            if(statement.executeUpdate("UPDATE teachers SET surname='"+ surname + "',name='" + name + "',midname='" + midname +
-                    "',photo='" + linkImage + "',education='" + education + "' WHERE student.id=" + id)==0) {
-            } else {
+            statement.executeUpdate("UPDATE teachers SET surname='"+ surname + "',name='" + name + "',midname='" + midname +
+                    "',photo='" + linkImage + "',education='" + education + "' WHERE teachers.id=" + id);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Информация");
                 alert.setContentText("Пользователь "+surname+" "+name+" "+midname+" обновлен в БД");
                 alert.show();
-            }
-        } catch (SQLException e) {
+            } catch (SQLException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Ошибка");
             alert.setHeaderText("Не удалось обновить текущюю запись");
+            alert.setHeaderText(String.valueOf(ex));
             alert.showAndWait();
         }
     }

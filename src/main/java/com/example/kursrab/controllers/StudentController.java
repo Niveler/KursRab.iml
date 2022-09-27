@@ -120,6 +120,7 @@ public class StudentController {
         Student student = StudentsTable.getSelectionModel().getSelectedItem();
         if(student!=null)
             showDialog(student);
+        id = student.getId();
         surname = student.getSurname();
         name = student.getName();
         midname = student.getMidname();

@@ -100,6 +100,7 @@ public class PrizeController {
         Prize prize = (Prize) PrizesTable.getSelectionModel().getSelectedItem();
         if(prize!=null)
             showDialog(prize);
+        id = prize.getId();
         score = prize.getScore();
         type = prize.getType();
         try{

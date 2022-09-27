@@ -14,8 +14,8 @@
           <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="150.0" prefHeight="160.0" prefWidth="150.0">
                <children>
                   <Button fx:id="butAdd" mnemonicParsing="false" onAction="#onAdd" text="Добавить" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <Button fx:id="butEdit" mnemonicParsing="false" onAction="#onEdit" text="Редактировать" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
-                  <Button fx:id="butDelete" mnemonicParsing="false" onAction="#onDelete" text="Удалить" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0" />
+                  <Button fx:id="butEdit" mnemonicParsing="false" onAction="#onEdit" text="Редактировать" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" />
+                  <Button fx:id="butDelete" mnemonicParsing="false" onAction="#onDelete" text="Удалить" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0" />
                   <Button fx:id="butExit" mnemonicParsing="false" onAction="#onExit" text="Закрыть" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                </children>
             </AnchorPane>

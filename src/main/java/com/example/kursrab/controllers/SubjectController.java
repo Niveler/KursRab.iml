@@ -86,6 +86,7 @@ public class SubjectController {
         Subject subject = SubjectsTable.getSelectionModel().getSelectedItem();
         if (subject!=null)
             showDialog(subject);
+        id = subject.getId();
         named = subject.getNamed();
         hours = subject.getHours();
         tmp ="UPDATE subject SET named='" + named+ "', hours='"+hours+"' WHERE subject.id='" + id+"'";

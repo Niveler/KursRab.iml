@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.sql.*;
 
 public class MainController {
-    final static String DB_URL = "jdbc:mysql://localhost:3306/school";
+    final static String DB_URL = "jdbc:mysql://localhost:3306/school?autoReconnect=true";
     final static String LOGIN = "root";
     final static String PASS = "root";
     public static Connection connection;
@@ -59,6 +59,7 @@ public class MainController {
         try {
             connection = DriverManager.getConnection(DB_URL,LOGIN,PASS);
             if(connection.isClosed()) {
+                circle.setFill(Color.RED);
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Ошибка");
                 alert.setHeaderText("соединения нет. Connection.isClosed");
@@ -93,7 +94,7 @@ public class MainController {
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(Main.getStage());
-        stage.setTitle("Информация о студенте");
+        stage.setTitle("Информация об учениках");
         stage.setScene(scene);
         StudentController studentController = fxmlLoader.getController();
         studentController.setStage2(stage);
@@ -180,7 +181,7 @@ public class MainController {
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(Main.getStage());
-        stage.setTitle("Информация о предметах");
+        stage.setTitle("Информация о призах");
         stage.setScene(scene);
         PrizeController prizeController = fxmlLoader.getController();
         prizeController.setStage2(stage);
@@ -193,7 +194,7 @@ public class MainController {
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(Main.getStage());
-        stage.setTitle("Информация о предметах и преподователях");
+        stage.setTitle("Информация о назначении учителя на специализацию");
         stage.setScene(scene);
         TeachDiscipController teachDiscipController = fxmlLoader.getController();
         teachDiscipController.setStageTeachDiscip(stage);
@@ -206,7 +207,7 @@ public class MainController {
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(Main.getStage());
-        stage.setTitle("Информация об оценках");
+        stage.setTitle("Информация о журнале оценкок");
         stage.setScene(scene);
         JournalController journalController = fxmlLoader.getController();
         journalController.setStageJournal(stage);

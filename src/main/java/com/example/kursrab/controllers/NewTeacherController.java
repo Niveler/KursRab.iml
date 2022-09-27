@@ -3,10 +3,13 @@ package com.example.kursrab.controllers;
 import com.example.kursrab.Teacher;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class NewTeacherController {
     public TextField tfSurname;
@@ -38,6 +41,11 @@ public class NewTeacherController {
     }
     public void onOpenFile(ActionEvent actionEvent) {
         File file = fileChooser.showOpenDialog(stageNewTeacher);
+        try {
+            FileInputStream fin = new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         tfLink.setText(file.getAbsolutePath());
     }
 
