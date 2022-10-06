@@ -3,13 +3,9 @@ package com.example.kursrab.controllers;
 import com.example.kursrab.Teacher;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 public class NewTeacherController {
     public TextField tfSurname;
@@ -17,6 +13,7 @@ public class NewTeacherController {
     public TextField tfMidName;
     public TextField tfEducation;
     public TextField tfLink;
+    public String photoname;
     private Teacher teacher;
     final FileChooser fileChooser = new FileChooser();
     private Stage stageNewTeacher;
@@ -33,20 +30,17 @@ public class NewTeacherController {
         teacher.setName(tfName.getText());
         teacher.setMidname(tfMidName.getText());
         teacher.setEducation(tfEducation.getText());
-        teacher.setPhoto(tfLink.getText());
+        teacher.setPhoto(photoname); //добавляем имя изображения для БД
         stageNewTeacher.close();
     }
     public void setStage(Stage stage) {
         this.stageNewTeacher = stage;
     }
     public void onOpenFile(ActionEvent actionEvent) {
-        File file = fileChooser.showOpenDialog(stageNewTeacher);
-        try {
-            FileInputStream fin = new FileInputStream(file);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        tfLink.setText(file.getAbsolutePath());
+        File inputFile = new File("/images/");
+        File outputFile = fileChooser.showOpenDialog(stageNewTeacher);
+        photoname = outputFile.getName();
+
     }
 
     public void onCancel(ActionEvent actionEvent) {

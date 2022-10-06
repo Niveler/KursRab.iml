@@ -33,7 +33,6 @@ public class TeacherController {
     String name = "";
     String midname = "";
     String linkImage = "";
-    byte[] link;
     String education = "";
     private Stage tableTeachersStage;
     public void setStageTeachers(Stage stageTeachers) {this.tableTeachersStage=stageTeachers;}

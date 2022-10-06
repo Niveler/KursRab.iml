@@ -10,7 +10,7 @@ public class Teacher {
     private StringProperty surname;
     private StringProperty name;
     private StringProperty midname;
-    private StringProperty photo; //хранить в бд будем ссылку на файл
+    private StringProperty photo;
     private StringProperty education;
 
     public Teacher(Integer id, String surname, String name, String midname, String photo, String education) {
